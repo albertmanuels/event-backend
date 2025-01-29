@@ -1,4 +1,4 @@
-import express from "express"
+import express, { Request, Response } from "express"
 import router from "./routes/api"
 import bodyParser from "body-parser"
 import db from "./utils/database"
@@ -13,6 +13,13 @@ async function init() {
     const PORT = 3000
     
     app.use(bodyParser.json())
+    
+    app.get("/", (req: Request, res: Response) => {
+      res.status(200).json({
+        message: "Server is running",
+        data: null,
+      })
+    })
     
     app.use("/api", router)
     
