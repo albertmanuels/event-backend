@@ -29,8 +29,18 @@ const doc = {
     },
     schemas: {
       LoginRequest: {
-        identifier: "albert@gmail.com",
+        identifier: "albert10@gmail.com",
         password: "123123"
+      },
+      RegisterRequest: {
+        fullName: "Albert M",
+        email: "albert10@yopmail.com",
+        username: "albert10",
+        password: "123123",
+        confirmPassword: "123123"
+      },
+      ActivationRequest: {
+        code: 'abc123'
       }
     }
   }
