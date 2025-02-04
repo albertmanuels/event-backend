@@ -4,7 +4,7 @@ import {CLOUDINARY_API_KEY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_SECRET} from "
 cloudinary.config({
   cloud_name: CLOUDINARY_CLOUD_NAME,
   api_key: CLOUDINARY_API_KEY,
-  api_secret: CLOUDINARY_API_SECRET
+  api_secret: CLOUDINARY_API_SECRET,
 })
 
 const toDataURL = (file: Express.Multer.File) => {
@@ -26,7 +26,8 @@ export default {
   async uploadSingle(file: Express.Multer.File){
     const fileDataURL = toDataURL(file)
     const result = await cloudinary.uploader.upload(fileDataURL, {
-      resource_type: "auto"
+      resource_type: "auto",
+      folder: "event-app"
     })
 
     return result
