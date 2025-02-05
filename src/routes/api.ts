@@ -6,20 +6,32 @@ import { ROLES } from "../utils/constants";
 import mediaMiddleware from "../middlewares/media.middleware";
 import mediaController from "../controllers/media.controller";
 import categoryController from "../controllers/category.controller";
+import regionController from "../controllers/region.controller";
 
 const router = Router()
 
+// Auth
 router.post("/auth/register", authController.register)
 router.post("/auth/login", authController.login)
 router.get("/auth/me", authMiddleware, authController.me)
 router.post("/auth/activation", authController.activation)
 
+// Category
 router.post("/category", [authMiddleware, aclMiddleware([ROLES.ADMIN])], categoryController.create)
 router.get("/category", categoryController.findAll)
 router.get("/category/:id", categoryController.findOne)
 router.put("/category/:id", [authMiddleware, aclMiddleware([ROLES.ADMIN])], categoryController.update)
 router.delete("/category/:id", [authMiddleware, aclMiddleware([ROLES.ADMIN])], categoryController.remove)
 
+// Regions
+router.get("/regions", regionController.getAllProvinces)
+router.get("/regions/:id", regionController.getProvince)
+router.get("/regions/:id/regency", regionController.getRegency)
+router.get("/regions/:id/district", regionController.getDistrict)
+router.get("/regions/:id/village", regionController.getVillage)
+router.get("/regions-search", regionController.findByCity)
+
+// Media
 router.post(
   "/media/upload-single",
   [
