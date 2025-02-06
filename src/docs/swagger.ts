@@ -29,8 +29,8 @@ const doc = {
     },
     schemas: {
       LoginRequest: {
-        identifier: "albert10@gmail.com",
-        password: "123123"
+        identifier: "albertmnls10@yopmail.com",
+        password: "Albert10"
       },
       RegisterRequest: {
         fullName: "Albert M",

@@ -606,6 +606,7 @@
                 "type": "object",
                 "properties": {
                   "file": {
+                    "type": "file",
                     "format": "binary"
                   }
                 }
@@ -631,7 +632,25 @@
             "bearerAuth": {}
           }
         ],
-        "requestBody": {}
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "file",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/media/remove": {
@@ -681,11 +700,11 @@
         "properties": {
           "identifier": {
             "type": "string",
-            "example": "albert10@gmail.com"
+            "example": "albertmnls10@yopmail.com"
           },
           "password": {
             "type": "string",
-            "example": "123123"
+            "example": "Albert10"
           }
         },
         "xml": {

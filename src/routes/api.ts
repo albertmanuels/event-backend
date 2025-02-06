@@ -181,8 +181,9 @@ router.post(
         schema: {
           type: "object",
           properties: {
-            file: {
-              format: "binary"
+            "file": {
+              type: "file",
+              "format": "binary"
             }
           }
         }
@@ -212,10 +213,10 @@ router.post(
         schema: {
           type: "object",
           properties: {
-            files: {
-              type: "array"
+            "files": {
+              type: "array",
               items: {
-                type: "string",
+                type: "file",
                 format: "binary"
               }
             }
