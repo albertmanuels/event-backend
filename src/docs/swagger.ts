@@ -41,6 +41,33 @@ const doc = {
       },
       ActivationRequest: {
         code: 'abc123'
+      },
+      CreateCategoryRequest: {
+        name: "",
+        description: "",
+        icon: ""
+      },
+      CreateEventRequest: {
+        name: "",
+        startDate: "2025-02-06 20:02:00",
+        endDate: "2025-02-020 20:02:00",
+        description: "",
+        banner: "fileUrl",
+        isFeatured: false,
+        isPublish: false,
+        isOnline: false,
+        category: "category ObjectID",
+        slug: "slug",
+        createdBy: "user ObjectID",
+        createdAt: "2025-02-06 20:02:00",
+        updatedAt: "2025-02-06 20:02:00",
+        location: {
+          region: "region id",
+          coordinates: [0,0]
+        }
+    },
+      RemoveMediaRequest: {
+        fileUrl: ""
       }
     }
   }
